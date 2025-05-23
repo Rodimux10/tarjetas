@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="https://gruposese.com/tarjetas/manifest.json" />
+    <title>Tarjeta de Rodrigo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background-image: url('https://gruposese.com/tarjetas/fondo-tarjeta.png');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        height: 100vh;
+      }
+      #installBtn {
+        display: none;
+        padding: 10px 20px;
+        background: #ffffff;
+        color: 000000;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+.logo {
+        max-width: 200px;
+        margin: 0 auto 20px auto;
+        display: block;
+      }
+
+      .qr {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://gruposese.com/tarjetas/logo-sese.png" alt="Logo Sesé" class="logo" />
+    <div style="margin-top: 50px; text-align: left;margin-bottom:30px">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Fgruposese.com%2Ftarjetas%2FTarjeta_Rodrigo.html" />
+
+
+
+    </div>
+    <h2>Rodrigo  San Andres</h2>
+    <p><strong>Tuercas</strong></p>
+
+
+    <p>Email: rodrigo.sanandres@gruposese.com</p>
+    <p>Teléfono: Teléfono: 666666666</p>
+
+
+    <a href="https://gruposese.com/">www.gruposese.com</a>
+
+
+    <button id="installBtn">Añadir a pantalla de inicio</button>
+
+    <script>
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const btn = document.getElementById('installBtn');
+        btn.style.display = 'inline-block';
+        btn.addEventListener('click', () => {
+          btn.style.display = 'none';
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(() => {
+            deferredPrompt = null;
+          });
+        });
+      });
+      window.addEventListener('appinstalled', () => {
+        document.getElementById('installBtn').style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
