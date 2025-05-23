@@ -8,33 +8,99 @@
     <style>
       body {
         font-family: sans-serif;
-        padding: 20px;
+        margin: 0;
+        padding: 0;
+        background-image: url('https://gruposese.com/tarjetas/fondo-tarjeta.png');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+
+      .container {
+        background-color: rgba(0, 101, 255, 0.8);
+        padding: 20px 30px;
+        border-radius: 12px;
+        max-width: 320px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .logo {
+        max-width: 200px;
+        margin: 0 auto 20px auto;
+        display: block;
+      }
+
+      .qr {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 150px;
+        height: 150px;
+      }
+
+      h2 {
+        margin: 0 0 5px 0;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 4px 0;
+        font-size: 16px;
+      }
+
+      a {
+        color: #a8caff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
       #installBtn {
         display: none;
-        padding: 10px 20px;
+        padding: 12px 24px;
         background: #0065ff;
         color: white;
         border: none;
         border-radius: 5px;
         font-size: 16px;
-        margin-top: 20px;
+        margin-top: 25px;
+        width: 100%;
         cursor: pointer;
+        font-weight: 600;
       }
     </style>
   </head>
   <body>
- <div style="margin-top: 20px; text-align: center;">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://www.rodimux.es" alt="QR de contacto" />
-    </div>
-    <h2>Rodrigo</h2>
-    <p><strong>Tuercas</strong></p>
-    <p>Email: rodrigo.sanandres@gruposese.com</p>
-    <p>Teléfono: </p>
-    <p><a href="https://www.linkedin.com/in/rodimux/">LinkedIn</a></p>
-    <p><a href="https://www.rodimux.es">Ver contacto</a></p>   
+    <div class="container">
+      <img
+        src="https://gruposese.com/tarjetas/logo-sese.png"
+        alt="Logo Sesé"
+        class="logo"
+      />
+      <img
+        class="qr"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data="
+        alt="QR de contacto"
+      />
 
-    <button id="installBtn">Añadir a pantalla de inicio</button>
+      <h2>Rodrigo</h2>
+      <p><strong>Tuercas</strong></p>
+      <p>Teléfono: </p>
+      <p>Email: rodrigo.sanandres@gruposee.omc</p>
+
+      <p>C/Virgen del Buen Acuerdo 5.<br/>
+      50014 Zaragoza, España</p>
+
+      <button id="installBtn">Añadir a pantalla de inicio</button>
+    </div>
 
     <script>
       let deferredPrompt;
