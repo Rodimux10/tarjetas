@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="https://gruposese.com/tarjetas/manifest.json" />
+    <title>Tarjeta de Elia Serra</title>
+    <style>
+      @font-face {
+        font-family: Aspekta-150;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-150.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-200;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-200.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-300;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-300.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-400;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-400.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-500;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-400.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-600;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-600.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-750;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-750.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Aspekta-800;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Aspekta-800.ttf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Zodiak-Italic;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Zodiak-Italic.otf);
+        font-weight: normal !important;
+      }
+
+      @font-face {
+        font-family: Zodiak-LightItalic;
+        src: url(http://gruposese.com/wp-content/themes/skyetheme-child/fonts/Zodiak-LightItalic.otf);
+        font-weight: normal !important;
+      }
+      body {
+        font-family: "Aspekta-300", Arial, sans-serif !important;
+        font-weight: normal !important;
+        background-image: url('https://gruposese.com/tarjetas/fondo-tarjeta.png');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        height: 100vh;
+        margin:0px;
+      }
+      #installBtn {
+        display: none;
+        padding: 10px 20px;
+        background: #ffffff;
+        color: #333333;
+        border: none;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .logo {
+        max-width: 320px;
+        display: block;
+      }
+
+      .qr {
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 150px;
+        height: 150px;
+      }
+      a{
+        color: #333333;
+        text-decoration:none;
+        font-size:22px;
+        text-align:center;
+      }
+      .container{
+        padding: 20px;
+      }
+      .container-button{
+        padding: 10px 20px;
+        background: #ffffff;
+        border: none;
+        font-size: 16px;
+        margin-top: 10px;
+        cursor: pointer;
+        text-align:center;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Aspekta-300", Arial, sans-serif !important;
+        font-weight: normal !important;
+      }
+      b, strong, .seselink{
+        font-family: "Aspekta-600", Arial, sans-serif !important;
+        font-weight: normal !important;
+      }
+      .sizequinie{
+        font-family: "Aspekta-500", Arial, sans-serif !important;
+        font-weight: normal !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="https://gruposese.com/tarjetas/logo-sese.png" alt="Logo Sesé" class="logo" />
+      <div style="margin-top: 20px; text-align: left;margin-bottom:40px">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Frodimux10.github.io%2Ftarjetas%2FvcfCards%2FTarjeta_Elia_Serra.vcf" style="width: 120px; margin-top: 20px;padding:10px;border-radius:5px;background-color:#ffffff;" />
+
+    </div>
+    <h2>Elia Serra</h2>
+    <p><strong>Puesto:</strong> Tuercas</p>
+    <p><strong>Email:</strong> rodrigo.sanadres@gruposese.com</p>
+    <p><strong>Teléfono:</strong> 666666666</p>
+
+    </div>
+    <div class="container-button">
+      <a href="https://gruposese.com/" class="seselink">www.gruposese.com</a>
+    </div>
+    <div class="container-button">
+      <button id="installBtn">Añadir a pantalla de inicio</button>
+    </div>
+    <script>
+      let deferredPrompt;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const btn = document.getElementById('installBtn');
+        btn.style.display = 'inline-block';
+        btn.addEventListener('click', () => {
+          btn.style.display = 'none';
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(() => {
+            deferredPrompt = null;
+          });
+        });
+      });
+      window.addEventListener('appinstalled', () => {
+        document.getElementById('installBtn').style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
